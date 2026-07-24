@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+     <!--<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/form.css">-->
+</head>
+<body> 
+    <!-- <div class="userRegistration">-->
+         <div class="userRegistration-form">
+        <h2>Καταχώρηση Χρήστη</h2>
+        <div class="rounded-md shadow-sm -space-y-px">
+        </div>
+        <form id="UserRegistration" name="userRegistration" method="POST" action="">
+            <label for="name">Όνομα:</label>
+            <input type="text" id="Όνομα" name="name" placeholder="Όνομα" required>
+            <p></p>
+            <label for="lastname">Επώνυμο:</label>
+            <input type="text" id="Επώνυμο" name="lastname" placeholder="Επώνυμο" required>
+            <p></p>
+            <label for="username">Όνομα Χρήστη:</label>
+            <input type="text" id="Όνομα Χρήστη" name="username" placeholder="Όνομα Χρήστη" required>
+            <p></p>
+            <!--<label for="company_id">Company ID:</label>
+            <input type="text" id="Company_id" name="company_id" placeholder="Company ID" required>-->
+            <label for="role">Εταιρεία:</label>
+            <select name="[]" class=""  ><!--αν θελω να επιλεξω παραπανω από μία <select name="company_ids[]" multiple> αλλά φεύγει το dropdown menu-->
+                            <option value="">--Επιλέξτε Εταιρεία/ες--</option>
+                            <option value="001">001:Κ.Δ.ΜΠΑΚΑΛΑΡΟΣ ΑΕ</option>
+                            <option value="002">002:ΘΑΝΑΣΟΥΛΑΣ Α.Ε.</option>
+                            <option value="005">005:ΜΠΑΚΑΡ Α.Ε.</option>
+                            <option value="006_1">006-1:ΔΗΠΕΙΡΟΣ Α.Ε.: Κεντρική Ιωαννίνων</option>
+                            <option value="003_1">003-1:ΔΗΠΕΙΡΟΣ Α.Ε.: Κεντρική Άρτας</option>
+                            <option value="004_1">004-1:ΔΗΠΕΙΡΟΣ Α.Ε.: Κεντρική Θεσπρωτίας</option>
+                            <option value="007">007:ΚΑΒΑ ΚΟΥΛΙΕΡΗΣ Α.Ε.</option>
+                            <option value="008">008:FDRINK AE</option>
+            </select> 
+            <!--<button type="submit" name="save_select" class="" onclick="save()">Αποθήκευση</button>-->
+            <p></p>
+            <label for="department_id">Τμήμα:</label>
+            <input type="text" id="Τμήμα" name="department_id" placeholder="Τμήμα" required>
+            <p></p>
+            <label for="email">Email:</label>
+            <input type="email" id="Email" name="email" placeholder="Email" required>
+            <p></p>
+            <label for="password">Κωδικός:</label>
+            <input type="password" id="Κωδικός" name="password" placeholder="Κωδικός" required>
+            <p></p> 
+            <label for="phone">Τηλέφωνο:</label>
+            <input type="text" id="Τηλέφωνο" name="phone" placeholder="Τηλέφωνο" required>
+            <p></p>
+            <!--<label for="role">Role:</label>
+            <input type="text" id="Role" name="role" placeholder="Role" required>
+            <p></p>-->
+            <label for="role">Ρόλος/Θέση:</label>
+            <select id="role" name="role">
+                     <option value="">--Επιλέξτε Θέση--</option>
+                     <option value="sales">Εξυπηρέτηση Πελατών</option>
+                     <option value="manager">Διεύθυνση</option>
+                     <option value="marketing">Λογιστήριο</option>
+                     <option value="sales">Πωλήσεις</option>
+                     <option value="other">Άλλο 
+                        <br> <br>
+                         <!--<label for="new_role">New Role:</label>-->
+                        <input type="text" id="new_role" name="new_role" placeholder="Γράψτε μία θέση"> 
+                     </option>
+            </select>
+             <!--<label for="new_role">New Role:</label>
+            <input type="text" id="new_role" name="new_role" placeholder="Enter a Role">-->
+            <!--<button type="submit" name="save_role" class="" onclick="save()">Αποθήκευση</button>-->
+            <p></p>
+            <button type="submit" onclick="register()">Καταχώρηση</button>
+        </form>
+    </div>
+    
+    <script src="./js/register.js"></script>
+    
+</body>
+</html>
+

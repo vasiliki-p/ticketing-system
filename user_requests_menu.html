@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+<<<<<<< HEAD
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+
+        .homepage {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .homepage a {
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+        body {margin:0;font-family:Arial}
+
+        .homepage {
+            overflow: hidden;
+            background-color: #333;
+        }
+      
+        .homepage a {
+            float: left;
+            display: block;
+>>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+<<<<<<< HEAD
+        .homepage #logout {
+            background-color: #f79345;
+            color: white;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropbtn {
+            background-color: #00234B;
+            color: white;
+            padding: 14px 16px;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+=======
+        .homepage #logout{
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            background-color: #aa0428;
+            color: white;
+        }
+ 
+        .homepage .icon {
+            display: none;
+        }
+      
+        .dropdown {
+            background-color: #4caf50;
+            color: white;
+            float: left;
+            overflow: hidden;
+        }
+      
+        .dropdown .dropbtn {
+            font-size: 17px;    
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+      
+>>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+<<<<<<< HEAD
+
+        .dropdown-content a {
+=======
+      
+        .dropdown-content a {
+            float: none;
+>>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+<<<<<<< HEAD
+        }
+
+=======
+            text-align: left;
+        }
+      
+        .homepage a:hover, .dropdown:hover .dropbtn {
+            background-color: #555;
+            color: white;
+        }
+      
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+      
+>>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+<<<<<<< HEAD
+        .search-container {
+            position: relative;
+            margin-left: auto;
+        }
+
+        #search {
+            padding: 8px 40px 8px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            border-radius: 25px;
+            outline: 0;
+            width: 200px;
+        }
+
+        #search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        @media screen and (max-width: 600px) {
+            .homepage {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .homepage a, .dropbtn {
+                display: block;
+                width: 100%;
+            }
+            .search-container {
+                margin: 10px 0;
+=======
+        /* Κανόνες CSS για τη φόρμα καταχώρησης αιτήματος */
+        .request-form {
+            margin: 20px; /* Προσθέστε απόσταση από τα πλάγια */
+            padding: 20px; /* Προσθέστε εσωτερικό padding */
+            background-color: #f4f4f4; /* Αλλάξτε το χρώμα του φόντου */
+            border-radius: 10px; /* Προσθέστε στρογγυλεμένες άκρες */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Προσθέστε σκιά */
+        }
+
+        .request-form h1 {
+            margin-bottom: 20px; /* Προσθέστε απόσταση κάτω από τον τίτλο */
+        }
+
+        .request-form label {
+            display: block; /* Κάντε τις ετικέτες των πεδίων να εμφανίζονται σε νέα γραμμή */
+            margin-bottom: 2px; /* Προσθέστε απόσταση μεταξύ των ετικετών */
+        }
+
+        .request-form input[type="text"],
+        .request-form input[type="email"],
+        .request-form textarea {
+            width: calc(100% - 10px); /* Προσθέστε padding στο πλάτος των πεδίων εισαγωγής */
+            padding: 10px; /* Προσθέστε εσωτερικό padding */
+            margin-bottom: 10px; /* Προσθέστε απόσταση μεταξύ των πεδίων */
+            border: 1px solid #ccc; /* Προσθέστε περίγραμμα */
+            border-radius: 5px; /* Προσθέστε στρογγυλεμένες άκρες */
+            box-sizing: border-box; /* Επιτρέψτε τον υπολογισμό του πλάτους με βάση το box-model */
+        }
+
+        .request-form input[type="submit"] {
+            width: auto; /* Επαναφέρετε το πλάτος του κουμπιού στην προεπιλεγμένη τιμή */
+            float: right;
+            padding: 10px 20px; /* Προσθέστε εσωτερικό padding */
+            background-color: #4caf50; /* Χρώμα φόντου */
+            color: white; /* Χρώμα κειμένου */
+            border: none; /* Καταργήστε το περίγραμμα */
+            border-radius: 5px; /* Προσθέστε στρογγυλεμένες άκρες */
+            cursor: pointer; /* Αλλάξτε το δείκτη του ποντικιού */
+            transition: background-color 0.3s ease; /* Εφέ αλλαγής χρώματος φόντου μετά από hover */
+        }
+
+        .request-form input[type="submit"]:hover {
+            background-color: #45a049; /* Χρώμα φόντου μετά από hover */
+        }
+
+        @media screen and (max-width: 600px) {
+            .homepage a:not(:first-child), .dropdown .dropbtn {
+                display: none;
+            }
+            .homepage a.icon {
+                float: right;
+                display: block;
+            }
+        }
+      
+        @media screen and (max-width: 600px) {
+            .homepage.responsive {position: relative;}
+            .homepage.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .homepage.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .homepage.responsive .dropdown {float: none;}
+            .homepage.responsive .dropdown-content {position: relative;}
+            .homepage.responsive .dropdown .dropbtn {
+                display: block;
+                width: 100%;
+                text-align: left;
+>>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="homepage" id="myhomepage">
+        <a href="./user.php">Αρχική Σελίδα</a>
+        <div class="dropdown">
+<<<<<<< HEAD
+            <button class="dropbtn">Αιτήματα</button>
+=======
+            <button class="dropbtn">Αιτήματα </button>
+>>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+            <div class="dropdown-content">
+                <a href="./request_form.php">Δημιουργία Αιτήματος</a>
+                <a href="./my_requests.php">Τα Αιτήματά μου</a>
+            </div>
+        </div>
+<<<<<<< HEAD
+        <div class="search-container">
+            <form id="search-form" action="search_results.php" method="POST">
+                <input type="text" id="search" name="search" placeholder="Αναζήτηση...">
+                <i class="fas fa-search" id="search-icon"></i>
+            </form>
+        </div>
+        <a href="./logout.php" id="logout">Αποσύνδεση</a>
+    </div>
+=======
+        <a href="./my_answers.php">Απαντήσεις</a>
+        <a href="./logout.php" id="logout">Αποσύνδεση</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myhomepage");
+            if (x.className === "homepage") {
+                x.className += " responsive";
+            } else {
+                x.className = "homepage";
+            }
+        }
+    </script>
+>>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+</body>
+</html>

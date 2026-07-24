@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+    body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+
+    .homepage {
+        overflow: hidden;
+        background-color: #333;
+      
+    }
+      
+      .homepage a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .active {
+        background-color: #4caf50;
+        color: white;
+      }
+      
+      .homepage .icon {
+        display: none;
+      }
+      
+      .homepage #logout{
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        background-color: #aa0428;
+        color: white;
+        }
+
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+      
+      .dropdown .dropbtn {
+        font-size: 17px;    
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .homepage a:hover, .dropdown:hover .dropbtn {
+        background-color: #555;
+        color: white;
+      }
+      
+      .dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+        .request-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .request-container h2 {
+            margin-bottom: 10px;
+            font-weight: bold; /* Προσθέστε το bold στον τίτλο */
+            float: center;
+            
+        }
+
+        .request-container p {
+            margin-bottom: 20px;
+        }
+        
+        .request-box {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .request-container h3 {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .request-box p {
+            margin-bottom: 5px;
+        }
+        
+        .request-container a:link {
+            color: blue;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        .request-container a:visited {
+            color: purple;
+            background-color: transparent;
+            text-decoration: underline; 
+        }
+        
+        .request-container a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+      @media screen and (max-width: 600px) {
+        .homepage a:not(:first-child), .dropdown .dropbtn {
+          display: none;
+        }
+        .homepage a.icon {
+          float: right;
+          display: block;
+        }
+      }
+      
+      @media screen and (max-width: 600px) {
+        .homepage.responsive {position: relative;}
+        .homepage.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+        .homepage.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+        .homepage.responsive .dropdown {float: none;}
+        .homepage.responsive .dropdown-content {position: relative;}
+        .homepage.responsive .dropdown .dropbtn {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+      }
+</style>
+</head>
+<body>
+     
+  <div class="homepage" id="myhomepage">
+    <a href="./user.php" >Αρχική Σελίδα</a>
+    <div class="dropdown">
+      <button class="dropbtn">Αιτήματα </button>
+      <div class="dropdown-content">
+        <a href="./request_form.php">Δημιουργία Αιτήματος</a>
+        <a href="./my_requests.php">Τα  Αιτήματά μου</a>
+      </div>
+    </div>
+    <a href="./my_answers.php">Απαντήσεις</a>
+    <a href="./logout.php" id="logout">Αποσύνδεση</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+<div class="request-container">
+<?php
+// Εμφάνιση αποτελεσμάτων
+if (isset($results) && !empty($results)) {
+    echo "<h2>Αποτελέσματα έρευνας</h2>";
+    echo "<p>Αναζήτηση:<strong> " . htmlspecialchars($search_query, ENT_QUOTES, 'UTF-8') . "</strong></p>";
+    foreach ($results as $result) {
+        echo "<div class='request-box'>";
+        if ($result['source'] === 'request') {
+            echo "<a href='request.php?id={$result['id']}'>Αίτημα</a>";
+      
+        } elseif ($result['source'] === 'answer') {
+            echo "<a href='answer.php?id={$result['id']}'>Απάντηση</a>";
+         
+        }
+        echo "</div><br>";
+     
+    }
+} else {
+  echo "Δεν βρέθηκαν αποτελέσματα.";
+}
+?>
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myhomepage");
+        if (x.className === "homepage") {
+            x.className += " responsive";
+        } else {
+            x.className = "homepage";
+        }
+    }
+    </script>
+    
+</body>
+</html>

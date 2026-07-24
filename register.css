@@ -1,0 +1,26 @@
+body,html {
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.registration_link{
+	text-align: center;
+	margin-top: 50px; /* Adjust as needed */
+}
+
+
+.registration_link a {
+    color: blue; /* Change to the color you prefer */
+    /*text-decoration: none;  Optional: Remove underline */
+}
+
+.registration_link a:hover {
+    color: red; /* Change to the color you prefer on hover */
+}
+
+
+
+
