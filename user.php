@@ -1,8 +1,6 @@
 <?php 
-<<<<<<< HEAD
 include 'user_id login.php';
 include 'connection.php';
-=======
 session_start();
 
 
@@ -32,7 +30,6 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // Τώρα μπορείτε να χρησιμοποιήσετε το $user_id για να ανακτήσετε τα αιτήματά του από τη βάση δεδομένων
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +37,10 @@ $user_id = $_SESSION['user_id'];
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=0.8">
-<<<<<<< HEAD
+ 
         <title>Home Page</title>
-=======
+
         <title>Welcome Page</title>
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body>
