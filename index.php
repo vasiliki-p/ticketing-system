@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 align-items: center;
                 height: 100vh;
                 /* Αν εξακολουθεί να βγάζει 404, έλεγξε το path και τα κεφαλαία/μικρά γράμματα στο GitHub */
-                background-image: url('Logos/website_logo_3d_backgrounds_dark-orange.jpg');
+                background-image: url('/website_logo_3d_backgrounds_dark-orange.jpg');
                 background-size: cover;
                 background-position: center;
             }
