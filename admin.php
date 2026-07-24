@@ -1,13 +1,10 @@
 <?php 
-<<<<<<< HEAD
 include 'restricted.php';
 include 'admin_menu.html';
 include 'connection.php';
 
 ?>
 
-
-=======
 include 'admin_menu.html';
 
 $servername = "localhost";
@@ -25,6 +22,3 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 ?>
 
-
-
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
