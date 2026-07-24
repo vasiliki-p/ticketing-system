@@ -1,6 +1,6 @@
 <?php
-<<<<<<< HEAD
-include 'connection.php'; // Make sure your database connection is included
+include 'connection.php'; 
+include 'delete dep css.html';
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
@@ -21,21 +21,6 @@ if (isset($_GET['id'])) {
 }
 
 $conn->close();
-?>
-=======
-include 'delete dep css.html';
-
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 ?>
 
 <!DOCTYPE html>
