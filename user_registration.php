@@ -1,25 +1,7 @@
 <?php
-<<<<<<< HEAD
 include 'restricted.php';
 include 'user css.html';
 include 'connection.php';
-
-=======
-include 'user css.html';
-// Database connection parameters
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
