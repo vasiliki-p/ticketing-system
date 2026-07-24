@@ -1,23 +1,7 @@
 <?php 
+session_start();
 include 'user_id login.php';
 include 'connection.php';
-session_start();
-
-
-
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-//echo "Connected successfully";
 
 // Έλεγχος αν ο χρήστης έχει συνδεθεί
 if (!isset($_SESSION['user_id'])) {
