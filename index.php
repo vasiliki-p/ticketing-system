@@ -1,4 +1,6 @@
-<?php include 'connection.php';?>
+<?php include 'connection.php';
+        session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -67,8 +69,7 @@
 
         <?php 
         
-        session_start();
-
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST['username'],$_POST['password'])){
                 $username = $_POST['username'];
