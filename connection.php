@@ -28,6 +28,3 @@ if ($conn->connect_error) {
     die("Η σύνδεση απέτυχε: " . $conn->connect_error);
 }
 ?>
-
-
-
