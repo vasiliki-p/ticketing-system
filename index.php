@@ -1,14 +1,12 @@
-<<<<<<< HEAD
+
 <?php include 'connection.php';?>
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=0.8">
-<<<<<<< HEAD
         
         <title>Login</title>
         <style>
@@ -113,7 +111,7 @@
     
     
     </div>
-=======
+
         <title>Welcome Page</title>
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./css/register.css">
@@ -127,6 +125,5 @@
         <p>Εγγραφή</p>
         </a>--> 
      </div>
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
     </body>
 </html>
