@@ -1,30 +1,9 @@
-<<<<<<< HEAD
 
 <?php
 include 'user_id login.php';
 include 'connection.php';
 include 'answers_form css.html';
-=======
-<?php
 
-
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-//echo "Connected successfully";
-
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +11,7 @@ if ($conn->connect_error) {
 <title>Καταχώρηση Απάντησης</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
+
 
 </head>
 <body>
@@ -58,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           //  echo "<script>window.location.href = 'requests.php';</script>";
             // Μεταφορά πίσω στη λίστα των αιτημάτων
             exit();
-=======
+
     <!-- Include your CSS file -->
        <link rel="stylesheet" type="text/css" href="answers_form css.html">
 
@@ -86,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Η απάντηση καταχωρήθηκε επιτυχώς.";
           //  header("Location: requests.php");
 
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
         } else {
             echo "Συνέβη κάποιο σφάλμα κατά την καταχώρηση της απάντησης.";
         }
@@ -95,32 +73,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Δε βρέθηκαν απαραίτητα πεδία.";
     }
  }
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
 
             // Query to select details of the request
-<<<<<<< HEAD
             $stmt = $conn->prepare("SELECT requests.id AS request_id, requests.title, requests.request, requests.created_at,requests.name, concat( answers.user_answer,' ', answers.admin_answer)  as answers, users.username
             FROM requests  
             LEFT JOIN answers ON requests.id = answers.request_id 
             LEFT JOIN users ON users.user_id = answers.user_id
             WHERE requests.id = ? 
             ");
-=======
+
             $stmt = $conn->prepare("SELECT name, email, request FROM requests WHERE id = ?");
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->get_result();
             $row = $result->fetch_assoc();
 
             if ($result->num_rows > 0) {
-<<<<<<< HEAD
                 echo "<div class='container'>";
                 echo "<div class='header-box'>";  
                 echo "<span style='margin-right: 20px;'><strong>Θέμα:</strong> " . $row['title'] . "</span>";
@@ -162,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
        // Close the connection
 
-=======
+
                 echo "<p><strong>Ονοματεπώνυμο:</strong> " . $row['name'] . "</p>";
                 echo "<p><strong>Email:</strong> " . $row['email'] . "</p>";
                 echo "<p><strong>Αίτημα:</strong> " . $row['request'] . "</p>";
@@ -186,7 +156,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Δε βρέθηκε ID αιτήματος.";
         }
        // Close the connection
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 $conn->close();
  ?>
     </div>
