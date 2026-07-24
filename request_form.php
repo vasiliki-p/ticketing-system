@@ -37,45 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $stmt->close();
         }
-
-// Check if user_id is set
-if(isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    // If user_id is not set, handle the situation accordingly
-    die("User ID is not set.");
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['name'], $_POST['email'], $_POST['request'], $_POST['title'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $request = $_POST['request'];
-        $title = $_POST['title'];
-        
-        // Check if there is already a request with the same title
-        $stmt = $conn->prepare("SELECT * FROM requests WHERE title = ?");
-        $stmt->bind_param("s", $title);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            echo "Υπάρχει ήδη ένα αίτημα με αυτό το θέμα. Παρακαλώ εισάγετε ένα διαφορετικό τίτλο.";
-        } else {
-            // Insert the request into the database
-            $stmt = $conn->prepare("INSERT INTO requests (user_id, name, email, request, title) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("issss", $user_id, $name, $email, $request, $title);
-
-            if ($stmt->execute()) {
-                echo "\n\n Το αίτημα σας καταχωρήθηκε επιτυχώς!";
-                header("Location: my_requests.php");
-                exit; // Exit to avoid executing code after the redirect
-            } else {
-                echo "Συνέβη κάποιο λάθος.";
-            }
-            $stmt->close(); // Close the statement
-        }
-        $stmt->close(); // Close the check statement
     } else {
         echo "Συνέβη κάποιο λάθος.";
     }
