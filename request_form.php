@@ -151,19 +151,6 @@ $conn->close();
             <input type="submit" name="submit" value="Καταχώρηση">
         </p>
 
-        <input type="submit" name="submit" value="Καταχώρηση">
-        <label for="title">Θέμα:</label>
-        <input type="text" id="title" name="title" required style="width: 300px;">
-        <p></p>
-        <label for="name">Ονοματεπώνυμο:</label>
-        <input type="text" id="name" name="name" required style="width: 300px;">
-        <p></p>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required style="width: 300px;">
-        <p></p>
-        <label for="request">Αίτημα:</label>
-        <textarea id="request" name="request" rows="26" cols="175" required></textarea>
-        <p></p>
     </form> 
 </div>
 
