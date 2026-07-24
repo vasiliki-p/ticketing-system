@@ -1,26 +1,11 @@
 <?php
 include 'answers_list.html';
 
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-<<<<<<< HEAD
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Query to select titles from requests table
 $sql = "SELECT id, title FROM requests WHERE request != '' ORDER BY created_at DESC"; // Modified query
 $result = $conn->query($sql);
 
 
-=======
   die("Connection failed: " . $conn->connect_error);
 }
 
@@ -28,7 +13,6 @@ $result = $conn->query($sql);
 $sql = "SELECT id, answer, title FROM requests WHERE answer!='' ORDER BY created_at DESC";
 $result = $conn->query($sql);
 
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 ?>
 
 <!DOCTYPE html>
@@ -36,15 +20,12 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+
     <title>Απαντήσεις</title>
 </head>
 <body>
     <div class="reg-form">
-<<<<<<< HEAD
         <h1>Απαντήσεις</h1>
         
         <?php
@@ -90,7 +71,7 @@ $result = $conn->query($sql);
 </body>
 </html>
 
-=======
+
     <h1>Απαντήσεις</h1>
     
     <?php
