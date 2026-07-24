@@ -114,7 +114,7 @@
 
         <title>Welcome Page</title>
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/register.css">
+        <link rel="stylesheet" href="./register.css">
     </head>
      <div class="login_link">
         <a href="./login.php"  > 
