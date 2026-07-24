@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 include 'restricted.php';
 include 'requests css.html';
 include 'connection.php';
@@ -37,39 +36,20 @@ if ($status_filter == 'completed') {
 $sql .= " ORDER BY created_at DESC LIMIT $items_per_page OFFSET $offset";
 
 $result = $conn->query($sql);
-=======
-include 'requests css.html';
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+
     <title>Αιτήματα</title>
 </head>
 <body>
 <div class="request-container">
-<<<<<<< HEAD
     <div class="header-container">
         <h1>Αιτήματα</h1>
         <div class="items-per-page">
@@ -100,7 +80,7 @@ if ($conn->connect_error) {
     <input type="hidden" name="status_filter" value="<?php echo $status_filter; ?>">
 
     <?php
-=======
+
     <h1>Αιτήματα</h1>
     <?php
     // Query to select titles from requests table
@@ -108,13 +88,11 @@ if ($conn->connect_error) {
     $sql = "SELECT id, name, email, title, completed FROM requests ORDER BY created_at DESC";
     $result = $conn->query($sql);
 
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
     // Output data of each row
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<div>";
             echo "<h3><a href='answer_form.php?id=" . $row["id"]. "'>" . $row["title"]. "</a>";
-<<<<<<< HEAD
             echo "<p></p>";
             //echo "<span style='margin-left: 20px;'>"; // Προσθήκη ενδιάμεσου κενού
              // Έλεγχος αν το checkbox είναι επιλεγμένο ή όχι
@@ -126,7 +104,6 @@ if ($conn->connect_error) {
             echo "<p>Ονοματεπώνυμο: " . $row["name"]. "</p>";
             echo "<p>Username: " . $row["username"]. "</p>";
             echo "<p>Ημερομηνία Δημιουργίας: " . $row["created_at"]. "</p>";
-=======
             echo "<span style='margin-left: 20px;'>"; // Προσθήκη ενδιάμεσου κενού
              // Έλεγχος αν το checkbox είναι επιλεγμένο ή όχι
             $checked = $row["completed"] == 1 ? "checked" : "";
@@ -134,7 +111,6 @@ if ($conn->connect_error) {
             echo "<div class='request-box'>";  
             echo "<p>Ονοματεπώνυμο: " . $row["name"]. "</p>";
             echo "<p>Email: " . $row["email"]. "</p>";
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
             echo "</div>";
             echo "</div>";
             echo "<p></p>";
@@ -145,7 +121,6 @@ if ($conn->connect_error) {
     ?>
 </div>
 
-<<<<<<< HEAD
 <div class="pagination">
     <?php
     for ($i = 1; $i <= $total_pages; $i++) {
@@ -179,7 +154,6 @@ if ($conn->connect_error) {
 }
 </script>
 <script src="update_completed.js"></script>
-=======
 <script>
 function updateCompleted(checkbox, id) {
     var completed = checkbox.checked ? 1 : 0;
@@ -200,7 +174,6 @@ function updateCompleted(checkbox, id) {
 </body>
 </html>
 
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 
 <?php
 // Check if the form is submitted
@@ -222,7 +195,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close connection
 $conn->close();
 ?>
-<<<<<<< HEAD
 </body>
 </html>
 =======
