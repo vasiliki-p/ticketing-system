@@ -1,7 +1,7 @@
 <?php
-<<<<<<< HEAD
 include 'restricted.php';
 include 'connection.php';
+include 'delete company css.html';
 
 if (isset($_GET['company_code'])) {
     $company_code = intval($_GET['company_code']);
@@ -22,23 +22,6 @@ if (isset($_GET['company_code'])) {
 } else {
     echo "Μη έγκυρο αίτημα.";
 }
-?>
-=======
-include 'delete company css.html';
-// σύνδεση με τη βάση
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Δημιουργία σύνδεσης με τη βάση δεδομένων
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Έλεγχος για τυχόν σφάλματα σύνδεσης
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 ?>
 
 <!DOCTYPE html>
