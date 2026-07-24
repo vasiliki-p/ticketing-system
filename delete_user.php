@@ -1,7 +1,7 @@
 <?php
-<<<<<<< HEAD
 include 'restricted.php';
 include 'connection.php';
+include 'delete user.html';
 
 if (isset($_GET['user_id'])) {
     $user_id = intval($_GET['user_id']);
@@ -22,23 +22,6 @@ if (isset($_GET['user_id'])) {
 } else {
     echo "Μη έγκυρο αίτημα.";
 }
-?>
-=======
-include 'delete user.html';
-// σύνδεση με τη βάση
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Δημιουργία σύνδεσης με τη βάση δεδομένων
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Έλεγχος για τυχόν σφάλματα σύνδεσης
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -100,4 +83,3 @@ $conn->close();
 
 </body>
 </html>
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
