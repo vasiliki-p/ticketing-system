@@ -1,5 +1,6 @@
 <?php
 include 'restricted.php';
+include 'connection.php';
 include 'dep css.html';
 ?>
 <!DOCTYPE html>
