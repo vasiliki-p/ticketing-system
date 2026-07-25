@@ -4,35 +4,6 @@ include 'user_id login.php';
 include 'connection.php';
 include 'answer css.html';
 
-<?php
-session_start();
-include 'answer css.html';
-
-// Έλεγχος αν ο χρήστης έχει συνδεθεί
-if (!isset($_SESSION['user_id'])) {
-    // Αν δεν έχει συνδεθεί, ανακατεύθυνση στη σελίδα σύνδεσης
-    header("Location: login.php");
-    exit();
-}
-
-// Αν έχει συνδεθεί, μπορείτε να χρησιμοποιήσετε το user_id από τη συνεδρία
-$user_id = $_SESSION['user_id'];
-
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-//echo "Connected successfully";
-
-
 ?>
 
 <!DOCTYPE html>
@@ -41,9 +12,6 @@ if ($conn->connect_error) {
 <title>Καταχώρηση Απάντησης</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <!-- Include your CSS file -->
-       <link rel="stylesheet" type="text/css" href="answers_form css.html">
 
 </head>
 <body>
@@ -69,23 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            echo "<script>window.location.href = 'my_requests.php';</script>";
             // Μεταφορά πίσω στη λίστα των αιτημάτων
             exit();
-        <h1><strong>Λεπτομέρειες Απάντησης</strong></h1>
-
-
- <?php
-
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if all required parameters are provided
-    if(isset($_POST['id'], $_POST['answer'])) {
-        $id = $_POST['id'];
-        $answer = $_POST['answer'];
-
-        // Insert the response into the database
-        $stmt = $conn->prepare("UPDATE requests SET answer = ?, updated_at = NOW() WHERE id = ?");
-        $stmt->bind_param("si", $answer, $id);
-
-        if ($stmt->execute()) {
-            echo "Η απάντηση καταχωρήθηκε επιτυχώς.";
         } else {
             echo "Συνέβη κάποιο σφάλμα κατά την καταχώρηση της απάντησης.";
         }
@@ -105,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             LEFT JOIN users ON users.user_id = answers.user_id
             WHERE requests.id = ? 
             ");
-            $stmt = $conn->prepare("SELECT id, title, request, answer  FROM requests WHERE id = ? AND answer!='' ");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -146,18 +96,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Δεν βρέθηκε αίτημα με το συγκεκριμένο ID.";
             }
         
-                echo "<p><strong>Θέμα:</strong> " . $row['title'] . "</p>";
-                echo "<p><strong>Αίτημα:</strong> " . $row['request'] . "</p>";
-                echo "<p><strong>Απάντηση:</strong> " . $row['answer'] . "</p>";
-                echo"</div>";
-            } else {
-                echo "Δεν βρέθηκε αίτημα με το συγκεκριμένο ID.";
-            }
-
             $stmt->close();
         } else {
             echo "Δεν βρέθηκαν απαντήσεις.";
         }
+        
        // Close the connection
 
 $conn->close();
@@ -166,5 +109,3 @@ $conn->close();
 </body>
 </html>
 
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
