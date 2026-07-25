@@ -1,5 +1,6 @@
 <?php
-include 'connection.php'; // Make sure your database connection is included
+include 'connection.php'; 
+include 'delete dep css.html';
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
