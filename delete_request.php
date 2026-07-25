@@ -1,32 +1,23 @@
 <?php
-include 'connection.php';
+include 'connection.php'; // Make sure your database connection is included
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
-    // Prepare and execute the DELETE statement for requests table
-    $stmt_requests = $conn->prepare("DELETE FROM requests WHERE id = ?");
-    $stmt_requests->bind_param("i", $id);
+    // Prepare statement to prevent SQL injection
+    $stmt = $conn->prepare("DELETE FROM requests WHERE id = ?");
+    $stmt->bind_param("i", $id);
 
-    if ($stmt_requests->execute()) {
-        // If request deletion is successful, prepare and execute the DELETE statement for answers table
-        $stmt_answers = $conn->prepare("DELETE FROM answers WHERE request_id = ?");
-        $stmt_answers->bind_param("i", $id);
-        
-        if ($stmt_answers->execute()) {
-            echo "success";
-        } else {
-            echo "error";
-        }
-
-        $stmt_answers->close();
+    if ($stmt->execute()) {
+        echo "success";
     } else {
-        echo "error";
+        echo "error: " . $stmt->error;
     }
 
-    $stmt_requests->close();
+    $stmt->close();
+} else {
+    echo "No ID provided";
 }
 
-// Close connection
 $conn->close();
 ?>
