@@ -1,5 +1,6 @@
 <?php
 include 'restricted.php';
+include 'connection.php';
 include 'delete dep css.html';
 ?>
 
