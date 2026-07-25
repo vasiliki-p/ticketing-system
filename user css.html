@@ -36,8 +36,6 @@
         right: 0px;
         top: 0px;
         background-color: #f79345;
-
-        background-color: #aa0428;
         color: white;
         }
 
@@ -53,8 +51,6 @@
         color: white;
         padding: 14px 16px;
         background-color: #00234B;
-
-        background-color: #4caf50;
         font-family: inherit;
         margin: 0;
       }
@@ -123,7 +119,6 @@
             cursor: pointer;
             color: #aaa;
         }
-      
   /* Κανόνες CSS για τη φόρμα καταχώρησης απάντησης */
   .reg-form {
             margin: 20px; /* Προσθέστε απόσταση από τα πλάγια */
@@ -168,8 +163,6 @@
             float: left;
             padding: 10px 20px; /* Προσθέστε εσωτερικό padding */
             background-color: #00234B; /* Χρώμα φόντου */
-
-            background-color: #4caf50; /* Χρώμα φόντου */
             color: white; /* Χρώμα κειμένου */
             border: none; /* Καταργήστε το περίγραμμα */
             border-radius: 5px; /* Προσθέστε στρογγυλεμένες άκρες */
@@ -180,8 +173,6 @@
 
         .reg-form input[type="submit"]:hover {
             background-color: #00234B; /* Χρώμα φόντου μετά από hover */
-
-            background-color: #45a049; /* Χρώμα φόντου μετά από hover */
         }
 
         /* Στυλ για τα πλαίσια γύρω από τα πεδία εισαγωγής */
@@ -232,9 +223,6 @@
 <div class="homepage" id="myhomepage">
   <a href="./admin.php">Αρχική Σελίδα</a>
   <a href="./requests.php">Αιτήματα</a>
-
-
-  <a href="./answers_list.php">Απαντήσεις</a>
   <div class="dropdown">
     <button class="dropbtn">Καταχωρήσεις </button>
     <div class="dropdown-content">
@@ -252,7 +240,6 @@
         <a href="./delete_request.php">Αίτημα</a>
     </div>
   </div>
-
   <div class="search-container">
       <form id="search-form" action="search_results.php" method="POST">
           <input type="text" id="search" name="search" placeholder="Αναζήτηση...">
@@ -264,12 +251,6 @@
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 <script src="search.js"></script>
-
-  <a href="./logout.php" id="logout">Αποσύνδεση</a>
-  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
-
-
 <script>
  function myFunction() {
   var x = document.getElementById("myhomepage");

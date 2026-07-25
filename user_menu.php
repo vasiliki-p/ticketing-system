@@ -1,5 +1,4 @@
 <?php
-
 include 'connection.php';
 
 $data = array();

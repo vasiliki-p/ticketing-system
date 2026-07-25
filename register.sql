@@ -15,19 +15,6 @@ Date: 2024-05-13 16:26:08
 
 SET FOREIGN_KEY_CHECKS=0;
 
--- ----------------------------
--- Table structure for `answers`
--- ----------------------------
-DROP TABLE IF EXISTS `answers`;
-CREATE TABLE `answers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `answer` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- ----------------------------
--- Records of answers
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `company`
@@ -107,24 +94,18 @@ INSERT INTO `requests` VALUES ('21', 'Βασιλική Πούπουζα', 'vpoup
 INSERT INTO `requests` VALUES ('22', 'Βασιλική Πούπουζα', 'vpoupouza@bakalaros.gr', '171', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.', '2024-05-10 17:05:02', 'test', '\"Η εκπαίδευση αποτελεί το θεμέλιο για την ανάπτυξη της κοινωνίας. Μέσω της συνεχούς μάθησης και της ανοιχτής διανόησης, διαμορφώνουμε ένα μέλλον γεμάτο ευκαιρίες και προοπτικές. Ας ενθαρρύνουμε την εκπαίδευση σε κάθε επίπεδο και ας δημιουργήσουμε έναν κόσμο όπου η γνώση είναι προσβάσιμη για όλους.\"', '2024-05-13 13:56:11', null);
 
 -- ----------------------------
--- Table structure for `roles`
+-- Table structure for `answers`
 -- ----------------------------
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE `roles` (
-  `role_name` varchar(255) NOT NULL,
-  `role_description` varchar(255) NOT NULL,
-  `department_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`role_name`)
+DROP TABLE IF EXISTS `answers`;
+CREATE TABLE `answers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `answer` text NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
--- Records of roles
+-- Records of answers
 -- ----------------------------
-INSERT INTO `roles` VALUES ('Εξυπηρέτηση Πελατών ', '', '');
-INSERT INTO `roles` VALUES ('ΙΤ', '', '');
-INSERT INTO `roles` VALUES ('Λογιστήριο', '', '');
-INSERT INTO `roles` VALUES ('Οικονομικός Διευθυντής', '', '');
-INSERT INTO `roles` VALUES ('Πωλητής', '', '');
 
 -- ----------------------------
 -- Table structure for `users`
@@ -152,3 +133,24 @@ CREATE TABLE `users` (
 INSERT INTO `users` VALUES ('171', 'Vassiliki', 'Poupouza', 'vpoupouza', '$2y$10$dIEL55fd1y.xVYfQIF5Xo.ITm9LR4xwrZ1JNpCi8RRr.2lQsd9aoG', '001,002,005,006:003,006:004,006:006,007,008', 'IT', 'vpoupouza@bakalaros.gr', '6976500903', '0', 'ΙΤ', '0');
 INSERT INTO `users` VALUES ('172', 'Σωτήριος', 'Σωτηρακόπουλος', 'ssotirakopoulos', '$2y$10$ymXJJyf01xUh/FVwrw8UC./IhqWPBor9nCA3iUQ/ERX58jNSOhOY2', '001,002,005,006:003,006:004,006:006,007,008', 'IT', 'ssotirakopoulos@bakalaros.gr', '6976236028', '0', 'ΙΤ', '1');
 INSERT INTO `users` VALUES ('173', 'Ευάγγελος', 'Πετρόπουλος', 'vpetropoulos', '$2y$10$eBjwp17cW38S2mQlWGHpr.DP5/OuaG0NCXrQet1yo4fEHUEhdbLzy', '001,002,005,006:003,006:004,006:006,007,008', 'IT', 'vpetropoulos@bakalaros.gr', '6936124333', '0', 'ΙΤ', '1');
+
+
+-- ----------------------------
+-- Table structure for `roles`
+-- ----------------------------
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE `roles` (
+  `role_name` varchar(255) NOT NULL,
+  `role_description` varchar(255) NOT NULL,
+  `department_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`role_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ----------------------------
+-- Records of roles
+-- ----------------------------
+INSERT INTO `roles` VALUES ('Εξυπηρέτηση Πελατών ', '', '');
+INSERT INTO `roles` VALUES ('ΙΤ', '', '');
+INSERT INTO `roles` VALUES ('Λογιστήριο', '', '');
+INSERT INTO `roles` VALUES ('Οικονομικός Διευθυντής', '', '');
+INSERT INTO `roles` VALUES ('Πωλητής', '', '');

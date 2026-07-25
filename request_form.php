@@ -1,6 +1,5 @@
 <?php
 session_start();
-<<<<<<< HEAD
 include 'connection.php';
 include 'user_requests_menu.html';
 
@@ -38,68 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $stmt->close();
         }
-=======
-include 'user_requests_menu.html';
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check if user_id is set
-if(isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    // If user_id is not set, handle the situation accordingly
-    die("User ID is not set.");
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['name'], $_POST['email'], $_POST['request'], $_POST['title'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $request = $_POST['request'];
-        $title = $_POST['title'];
-        
-        // Check if there is already a request with the same title
-        $stmt = $conn->prepare("SELECT * FROM requests WHERE title = ?");
-        $stmt->bind_param("s", $title);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            echo "Υπάρχει ήδη ένα αίτημα με αυτό το θέμα. Παρακαλώ εισάγετε ένα διαφορετικό τίτλο.";
-        } else {
-            // Insert the request into the database
-            $stmt = $conn->prepare("INSERT INTO requests (user_id, name, email, request, title) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("issss", $user_id, $name, $email, $request, $title);
-
-            if ($stmt->execute()) {
-                echo "\n\n Το αίτημα σας καταχωρήθηκε επιτυχώς!";
-                header("Location: my_requests.php");
-                exit; // Exit to avoid executing code after the redirect
-            } else {
-                echo "Συνέβη κάποιο λάθος.";
-            }
-            $stmt->close(); // Close the statement
-        }
-        $stmt->close(); // Close the check statement
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
     } else {
         echo "Συνέβη κάποιο λάθος.";
     }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 $conn->close();
 ?>
 
@@ -109,7 +51,6 @@ $conn->close();
     <title>Καταχώρηση Αιτήματος</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .request-form {
@@ -180,15 +121,12 @@ $conn->close();
             };
         });
     </script>
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 </head>
 <body>
 
 <div class="request-form">
     <h1><strong>Καταχώρηση Αιτήματος</strong></h1>
     <form id="request-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-<<<<<<< HEAD
         <p>
             <label for="title">Θέμα:</label>
             <input type="text" id="title" name="title" required oninput="checkWordLimit()">
@@ -213,21 +151,6 @@ $conn->close();
         <p>
             <input type="submit" name="submit" value="Καταχώρηση">
         </p>
-=======
-        <input type="submit" name="submit" value="Καταχώρηση">
-        <label for="title">Θέμα:</label>
-        <input type="text" id="title" name="title" required style="width: 300px;">
-        <p></p>
-        <label for="name">Ονοματεπώνυμο:</label>
-        <input type="text" id="name" name="name" required style="width: 300px;">
-        <p></p>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required style="width: 300px;">
-        <p></p>
-        <label for="request">Αίτημα:</label>
-        <textarea id="request" name="request" rows="26" cols="175" required></textarea>
-        <p></p>
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
     </form> 
 </div>
 

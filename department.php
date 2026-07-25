@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
 include 'restricted.php';
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 include 'dep css.html';
 // σύνδεση με τη βάση
 $servername = "localhost";

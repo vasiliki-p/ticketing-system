@@ -4,11 +4,7 @@ session_start();
 // Έλεγχος αν ο χρήστης έχει συνδεθεί
 if (!isset($_SESSION['user_id'])) {
     // Αν δεν έχει συνδεθεί, ανακατεύθυνση στη σελίδα σύνδεσης
-<<<<<<< HEAD
     header("Location: index.php");
-=======
-    header("Location: login.php");
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
     exit();
 }
 

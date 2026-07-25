@@ -1,21 +1,7 @@
 <?php
-<<<<<<< HEAD
 include 'restricted.php';
-=======
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
+include 'connection.php';
 include 'delete dep css.html';
-
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 ?>
 
 <!DOCTYPE html>

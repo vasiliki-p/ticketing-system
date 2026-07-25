@@ -30,11 +30,7 @@ if ($conn->connect_error) {
 <?php include 'request css.html'; ?>
 
     <div class="answer_form">
-<<<<<<< HEAD
         <h1>Λεπτομέρειες Αιτήματος</h1>
-=======
-        <h1><strong>Λεπτομέρειες Αιτήματος</strong></h1>
->>>>>>> fdcf3ac0bc7103ec101333d572ddae28c826284b
 
 
  <?php
