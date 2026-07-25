@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id = $_GET['id'];
 
             // Query to select details of the request
-            $stmt = $conn->prepare("SELECT requests.id AS request_id, requests.title, requests.request, requests.created_at,requests.name, concat( answers.user_answer,' ', answers.admin_answer)  as answers, users.username
+            $stmt = $conn->prepare("SELECT requests.id AS request_id, requests.title, requests.request, requests.created_at,requests.name, concat( answers.answer,' ', answers.answer)  as answers, users.username
             FROM requests  
             LEFT JOIN answers ON requests.id = answers.request_id 
             LEFT JOIN users ON users.user_id = answers.user_id
