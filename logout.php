@@ -8,7 +8,5 @@ session_destroy();
 
 // Ανακατεύθυνση του χρήστη στη σελίδα σύνδεσης 
 header("Location: index.php");
-
-header("Location: login.php");
 exit;
 ?>
