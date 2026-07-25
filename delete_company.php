@@ -2,7 +2,6 @@
 include 'restricted.php';
 include 'connection.php';
 include 'delete dep css.html';
-?>
 
 if (isset($_GET['company_code'])) {
     $company_code = intval($_GET['company_code']);
