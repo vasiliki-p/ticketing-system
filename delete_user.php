@@ -1,6 +1,8 @@
 <?php
 include 'restricted.php';
 include 'connection.php';
+include 'delete dep css.html';
+
 
 if (isset($_GET['user_id'])) {
     $user_id = intval($_GET['user_id']);
