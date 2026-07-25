@@ -24,7 +24,7 @@ $total_items = $total_items_row['count'];
 // Calculate the total number of pages
 $total_pages = ceil($total_items / $items_per_page);
 
-$sql = "SELECT id, name, username, email, title, created_at, IF(completed IS NULL, 0, completed) AS completed FROM requests";
+$sql = "SELECT id, name, email, title, created_at, IF(completed IS NULL, 0, completed) AS completed FROM requests";
 
 // Προσθήκη φίλτρου κατάστασης στο ερώτημα SQL
 if ($status_filter == 'completed') {
