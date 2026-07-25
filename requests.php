@@ -36,7 +36,7 @@ if ($status_filter == 'completed') {
 $sql .= " ORDER BY created_at DESC LIMIT $items_per_page OFFSET $offset";
 
 $result = $conn->query($sql);
-
+?>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +45,6 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <title>Αιτήματα</title>
 </head>
 <body>
@@ -80,14 +79,6 @@ $result = $conn->query($sql);
     <input type="hidden" name="status_filter" value="<?php echo $status_filter; ?>">
 
     <?php
-
-    <h1>Αιτήματα</h1>
-    <?php
-    // Query to select titles from requests table
-    
-    $sql = "SELECT id, name, email, title, completed FROM requests ORDER BY created_at DESC";
-    $result = $conn->query($sql);
-
     // Output data of each row
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
@@ -104,13 +95,6 @@ $result = $conn->query($sql);
             echo "<p>Ονοματεπώνυμο: " . $row["name"]. "</p>";
             echo "<p>Username: " . $row["username"]. "</p>";
             echo "<p>Ημερομηνία Δημιουργίας: " . $row["created_at"]. "</p>";
-            echo "<span style='margin-left: 20px;'>"; // Προσθήκη ενδιάμεσου κενού
-             // Έλεγχος αν το checkbox είναι επιλεγμένο ή όχι
-            $checked = $row["completed"] == 1 ? "checked" : "";
-            echo "<input type='checkbox' id='completed' name='completed' value='1' $checked onchange='updateCompleted(this, " . $row["id"] . ")'></h3></p>";
-            echo "<div class='request-box'>";  
-            echo "<p>Ονοματεπώνυμο: " . $row["name"]. "</p>";
-            echo "<p>Email: " . $row["email"]. "</p>";
             echo "</div>";
             echo "</div>";
             echo "<p></p>";
@@ -154,26 +138,6 @@ $result = $conn->query($sql);
 }
 </script>
 <script src="update_completed.js"></script>
-<script>
-function updateCompleted(checkbox, id) {
-    var completed = checkbox.checked ? 1 : 0;
-
-    // Παράδειγμα AJAX ερώτησης
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Επιτυχής αποθήκευση στη βάση δεδομένων
-            console.log("Η κατάσταση του αιτήματος ενημερώθηκε επιτυχώς.");
-        }
-    };
-    xhttp.open("GET", "update_completed.php?id=" + id + "&completed=" + completed, true);
-    xhttp.send();
-}
-</script>
-
-</body>
-</html>
-
 
 <?php
 // Check if the form is submitted
