@@ -1,9 +1,7 @@
-
 <?php
 include 'user_id login.php';
 include 'connection.php';
 include 'answer css.html';
-
 ?>
 
 <!DOCTYPE html>
