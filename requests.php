@@ -93,7 +93,6 @@ $result = $conn->query($sql);
             echo "<label for='delete' style='margin-left: 20px;'><i class='fas fa-trash-alt' style='cursor:pointer; color:#FF7613;' onclick='deleteRequest(" . $row["id"] . ")'></i></label></h3></p>";
             echo "<div class='request-box'>";  
             echo "<p>Ονοματεπώνυμο: " . $row["name"]. "</p>";
-            echo "<p>Username: " . $row["username"]. "</p>";
             echo "<p>Ημερομηνία Δημιουργίας: " . $row["created_at"]. "</p>";
             echo "</div>";
             echo "</div>";
