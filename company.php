@@ -1,7 +1,6 @@
 <?php
 include 'restricted.php';
 include 'company css.html';
-
 ?>
 
 
