@@ -1,27 +1,7 @@
 <?php
 include 'restricted.php';
 include 'connection.php';
-include 'delete company css.html';
-
-if (isset($_GET['company_code'])) {
-    $company_code = intval($_GET['company_code']);
-
-    // Prepare statement to delete company
-    $sql = "DELETE FROM company WHERE company_code = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('i', $company_code);
-
-    if ($stmt->execute()) {
-        echo "success";
-    } else {
-        echo "Σφάλμα κατά τη διαγραφή της εταιρείας: " . $stmt->error;
-    }
-
-    $stmt->close();
-    $conn->close();
-} else {
-    echo "Μη έγκυρο αίτημα.";
-}
+include 'delete dep css.html';
 ?>
 
 <!DOCTYPE html>
@@ -34,14 +14,13 @@ if (isset($_GET['company_code'])) {
 </head>
 <body>  
 <div class="reg-form">
-    <h2>Διαγραφή Εταιρείας</h2>
+    <h1>Διαγραφή Τμήματος</h1>
+    
     <form id="reg-form" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
-        <label for="delete_company_code">Κωδικός Εταιρείας:</label>
-        <input type="text" name="delete_company_code" placeholder="Κωδικός Εταιρείας" required>
-        <label for="delete_company_name">Όνομα Εταιρείας:</label>
-        <input type="text" name="delete_company_name" placeholder="Όνομα Εταιρείας" required>
+        <label for="delete_dep_name">Όνομα Τμήματος:</label>
+        <input type="text" name="delete_dep_name" placeholder="Όνομα Τμήματος" required>
         <div style="text-align: center;"> 
-        <input type="submit" name="delete_company" value="Διαγραφή">
+        <input type="submit" name="delete_dep" value="Διαγραφή">
     </form>
 </div>
 
@@ -51,35 +30,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Κώδικας για καταχώρηση εταιρείας
     }
     
-    if (isset($_POST['delete_company'])) {
-        // Λαμβάνουμε τον κωδικό και το όνομα της εταιρείας που θέλουμε να διαγράψουμε
-        $delete_company_code = $_POST['delete_company_code'];
-        $delete_company_name = $_POST['delete_company_name'];
+    if (isset($_POST['delete_dep'])) {
+        $delete_dep_name = $_POST['delete_dep_name'];
 
-        // Κατασκευάζουμε το SQL ερώτημα για διαγραφή
-        $sql = "DELETE FROM company WHERE company_code=? AND company_name = ?";
+        $sql = "DELETE FROM department WHERE department_name=?";
 
-
-        // Προετοιμάζουμε το ερώτημα SQL για εκτέλεση
         $stmt = $conn->prepare($sql);
         
-        // Συνδέουμε τον κωδικό και το όνομα της εταιρείας με τις παραμέτρους στο ερώτημα SQL
-        $stmt->bind_param("ss", $delete_company_code, $delete_company_name);
+        $stmt->bind_param("s", $delete_dep_name);
 
-        // Εκτελούμε το ερώτημα διαγραφής
         if ($stmt->execute()) {
-            echo "Η εταιρεία διαγράφηκε με επιτυχία.";
+            echo "Το τμήμα διαγράφηκε με επιτυχία.";
         } else {
-            echo "Σφάλμα κατά τη διαγραφή της εταιρείας: " . $stmt->error;
+            echo "Σφάλμα κατά τη διαγραφή του τμήματος: " . $stmt->error;
         }
 
-        // Κλείνουμε το statement
         $stmt->close();
     }
 }
 $conn->close();
 ?>
-
 
 </body>
 </html>
