@@ -5,8 +5,6 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     // Αν δεν έχει συνδεθεί, ανακατεύθυνση στη σελίδα σύνδεσης
     header("Location: index.php");
-
-    header("Location: login.php");
     exit();
 }
 
