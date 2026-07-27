@@ -1,23 +1,7 @@
 <?php
 include 'restricted.php';
+include 'connection.php';
 include 'dep css.html';
-// σύνδεση με τη βάση
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Δημιουργία σύνδεσης με τη βάση δεδομένων
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Έλεγχος για τυχόν σφάλματα σύνδεσης
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-echo "\n\n";
-//echo "Connected successfully";
-
 ?>
 <!DOCTYPE html>
 <html>

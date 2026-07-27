@@ -10,19 +10,6 @@ if (!isset($_SESSION['user_id'])) {
 
 // Αν έχει συνδεθεί, μπορείτε να χρησιμοποιήσετε το user_id από τη συνεδρία
 $user_id = $_SESSION['user_id'];
-$servername = "localhost";
-$username = "admin";
-$password = "B@kal@r05";
-$dbname = "register";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 ?>
 
 <!DOCTYPE html>

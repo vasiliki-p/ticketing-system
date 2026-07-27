@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Invalid email format";
         } else {
             // Insert the request into the database
-            $stmt = $conn->prepare("INSERT INTO requests (user_id, name, username, email, request, title) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO requests (user_id, name, email, request, title) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("isssss", $user_id, $name, $username, $email, $request, $title);
 
             if ($stmt->execute()) {
