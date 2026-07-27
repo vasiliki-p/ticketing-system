@@ -1,17 +1,16 @@
 <?php 
 session_start();
-include 'connection.php'; // Σιγουρέψου ότι έχεις αυτό το αρχείο για τη σύνδεση!
+include 'connection.php'; // Πρόσθεσα το connection file γιατί χρησιμοποιείς το $conn
 
-// Σταθερό κενό για να μην κουνιέται η φόρμα στα λάθη
-$error_msg = "&nbsp;"; 
+$error_msg = "&nbsp;"; // Σταθερό κενό για να μην κουνιέται η φόρμα
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['username'], $_POST['password'])) {
+    if (isset($_POST['username'], $_POST['password'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
         
         // Ερώτημα για έλεγχο εάν ο χρήστης υπάρχει ήδη στη βάση
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username=? ");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username=?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -20,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $result->fetch_assoc();
             $user_id = $user['user_id'];
             
-            // Επαλήθευση κρυπτογραφημένου κωδικού
             if (password_verify($password, $user['password'])) {
+                // Εκχώρηση του user_id στη συνεδρία μόνο αν το password είναι σωστό
                 $_SESSION['user_id'] = $user_id;
-                
+
                 if ($user['admin'] == 1) {
                     header("Location: admin.php");
                 } else {
@@ -45,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=0.8">
-        <title>Login - IT Ticketing System</title>
+        <title>Login - Ticketing System</title>
         <style>
             body {
                 font-family: Arial, Helvetica, sans-serif;
@@ -55,22 +54,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                background-color: #f0f2f5; /* Απαλό γκρι background για αντίθεση */
+                background-color: #f0f2f5; /* Λίγο πιο μοντέρνο background */
             }
 
             .login-container {
-                width: 320px;
-                padding: 25px 20px;
+                width: 320px; /* Ελαφρώς μεγαλύτερο για να χωράνε ωραία τα κουμπιά */
+                padding: 20px 25px;
                 border: 1px solid #ccc;
                 border-radius: 8px;
                 background-color: #ffffff;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Διακριτική σκιά */
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             }
 
             h2 {
                 text-align: center;
                 margin-top: 0;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
                 color: #333;
             }
 
@@ -79,64 +78,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             input[type="text"],
-            input[type="password"],
-            button {
+            input[type="password"] {
                 width: 100%;
-                padding: 10px;
-                margin-top: 10px;
+                padding: 12px;
+                margin-top: 8px;
+                margin-bottom: 8px;
                 border: 1px solid #ccc;
                 border-radius: 4px;
                 box-sizing: border-box;
             }
 
-            button[type="submit"] {
+            .submit-btn {
+                width: 100%;
+                padding: 12px;
+                margin-top: 10px;
+                border: none;
+                border-radius: 4px;
+                box-sizing: border-box;
                 background-color: #4CAF50;
                 color: white;
                 font-weight: bold;
-                border: none;
+                font-size: 15px;
                 cursor: pointer;
-                transition: background-color 0.2s;
-                margin-bottom: 15px;
+                transition: background-color 0.3s;
             }
 
-            button[type="submit"]:hover {
+            .submit-btn:hover {
                 background-color: #45a049;
             }
 
             /* --- Demo Box Styles --- */
             .demo-box {
-                margin-top: 15px;
-                padding: 12px;
+                margin-top: 20px;
+                padding: 15px;
                 background-color: #f8f9fa;
                 border: 1px dashed #aaa;
                 border-radius: 6px;
             }
-            
+
             .demo-box h4 {
-                margin: 0 0 5px 0;
+                margin: 0 0 10px 0;
                 text-align: center;
                 font-size: 14px;
                 color: #444;
             }
-            
+
             .demo-btn {
                 display: block;
                 width: 100%;
                 margin-bottom: 8px;
-                padding: 8px;
-                background-color: #fff; 
+                padding: 8px 10px;
+                background-color: white; 
                 border: 1px solid #ddd;
                 border-radius: 4px;
                 cursor: pointer;
                 text-align: left;
                 font-size: 13px;
                 color: #333;
-                transition: transform 0.2s, box-shadow 0.2s;
+                transition: all 0.2s;
             }
-            
+
             .demo-btn:hover {
+                background-color: #e9ecef;
+                border-color: #ccc;
                 transform: scale(1.02);
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             }
         </style> 
     </head>
@@ -144,21 +149,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="login-container">
             <h2>Σύνδεση</h2>
             
-            <!-- Το σταθερό κουτάκι για τα μηνύματα λάθους -->
-            <div style="color: #d9534f; text-align: center; font-size: 13px; font-weight: bold; margin-bottom: 5px;">
+            <!-- Σταθερό πλαίσιο για τα μηνύματα λάθους -->
+            <div style="height: 20px; line-height: 20px; color: #d9534f; text-align: center; font-size: 13px; font-weight: bold;">
                 <?php echo $error_msg; ?>
             </div>
 
             <form id="Login" name="Login" method="POST"> 
-                <!-- Προσοχή: Τα id έγιναν αγγλικά για να δουλεύει σωστά το JavaScript! -->
+                <!-- Άλλαξα τα id σε username και password για να δουλέψει η JS -->
                 <input type="text" id="username" name="username" placeholder="Όνομα Χρήστη" required>
                 <input type="password" id="password" name="password" placeholder="Κωδικός" required>
-                <button type="submit">Είσοδος</button>
+                <button type="submit" class="submit-btn">Είσοδος</button>
             </form>
-            
+
             <!-- 💡 DEMO ACCOUNTS BOX -->
             <div class="demo-box">
-                <h4>🛠️ Demo Access</h4>
+                <h4>🛠️ Demo Access (Levels)</h4>
                 <p style="text-align: center; margin: 0 0 10px 0; color: #666; font-size: 11px;">Select a role to auto-fill:</p>
                 
                 <button type="button" class="demo-btn" onclick="fillCredentials('user_demo', '1234')">
@@ -168,10 +173,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ⚙️ <b>Admin:</b> admin_demo
                 </button>
             </div>
-            
         </div>
 
-        <!-- 💡 SCRIPT FOR AUTO-FILL -->
         <script>
             function fillCredentials(user, pass) {
                 document.getElementById('username').value = user;
