@@ -22,7 +22,7 @@ dorm.ini
 delete.ini
 
  
-connection.php
+# connection.php
 
 # Αν τα .sql αρχεία σας (π.χ. users.sql) έχουν μέσα αληθινά δεδομένα 
 # (π.χ. emails και κωδικούς), σβήστε το # από την παρακάτω γραμμή:
