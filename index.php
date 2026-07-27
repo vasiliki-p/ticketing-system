@@ -1,11 +1,7 @@
 <?php 
 session_start();
 include 'connection.php';
-// --- ΠΡΟΣΩΡΙΝΟΣ ΚΩΔΙΚΑΣ ΔΗΜΙΟΥΡΓΙΑΣ DEMO ΧΡΗΣΤΩΝ ---
-$hashed_pass = password_hash('1234', PASSWORD_DEFAULT);
-$conn->query("INSERT IGNORE INTO users (username, password, admin) VALUES ('admin_demo', '$hashed_pass', 1)");
-$conn->query("INSERT IGNORE INTO users (username, password, admin) VALUES ('user_demo', '$hashed_pass', 0)");
-// ----------------------------------------------------
+
 // Χρησιμοποιούμε non-breaking space (&nbsp;) για να έχει πάντα σταθερό ύψος το κουτί του λάθους
 $error_message = "&nbsp;"; 
 
